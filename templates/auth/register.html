@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body style="background-color: aliceblue; text-align: center;">
+
+
+    <div class="container" style="position: fixed;">
+        <h1 style="text-align: center;">Register</h1>
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="">Username:</label>
+        <input type="text" name="username" id="username" placeholder="Enter your username" required><br>
+        <label for="">Firstname:</label>
+        <input type="text" name="first_name" id="first_name" placeholder="Enter your firstname" required><br>
+        <label for="">Lastname:</label>
+        <input type="text" name="last_name" id="last_name" placeholder="Enter your lastname" required><br>
+        <label for="">Email:</label>
+        <input type="email" name="email" id="email" placeholder="Enter your email" required><br>
+        <label for="">Password:</label>
+        <input type="password" name="password" id="password" placeholder="Enter your password" required><br>
+        <label for="">Confirm password:</label>
+        <input type="password" name="password1" id="password1" placeholder="Confirm password" required><br>
+        <input type="submit" value="submit">
+
+
+
+    </form>
+    {% for msg in messages %}
+    {{msg}}
+    {% endfor %}
+</div>
+
+</body>
+</html>
+
+
