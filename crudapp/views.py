@@ -3,6 +3,7 @@ from . models import Book, Publisher
 from . forms import PublisherForm, BookForm
 from django.core.paginator import Paginator,EmptyPage
 from django.db.models import Q
+from django.contrib import messages
 
 
 
@@ -15,9 +16,28 @@ def publisher(request):
         book.save()
     return render(request,'book.html',{'pub':pub})
 
+
 def DetailsBook(request,book_id):
     book=Book.objects.get(id=book_id)
     return render(request,'admin/detailbook.html',{'book':book})
+
+
+# def DetailsBook(request, book_id):
+#     try:
+#         # Attempt to retrieve the book
+#         book = Book.objects.get(id=book_id)
+#     except Book.DoesNotExist:
+#         # If the book does not exist, show an error message and redirect
+#         messages.error(request, "Book not found")
+#         return redirect('/')  # Replace with a valid URL name or path
+    
+#     if request.user.is_authenticated:
+#         # If the user is authenticated, render the detail page
+#         return render(request, 'admin/detailbook.html', {'book': book})
+#     else:
+#         # If the user is not authenticated, redirect to login or another page
+#         messages.error(request, "Please log in to view this page")
+#         return redirect('login') 
 
 
 

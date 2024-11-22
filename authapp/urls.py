@@ -8,3 +8,4 @@ urlpatterns=[
     path('logout/',views.Logout,name='logout'),
 
 ]
+
